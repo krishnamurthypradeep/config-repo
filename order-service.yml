@@ -9,8 +9,8 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 15s
   r2dbc:
-    username: user
-    password: password
+    username: root
+    password: secret
     url: r2dbc:postgresql://localhost:5433/polardb_order
     pool:
       max-create-connection-time: 2s
