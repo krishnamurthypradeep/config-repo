@@ -9,7 +9,17 @@ spring:
     url: jdbc:h2:mem:mytracker
   data:
     rest:
-      base-path: /api/v2   
+      base-path: /api/v2
+eureka:
+	client:
+	  registerWithEureka: false
+   serviceUrl:
+    defaultZone: http://localhost:8082/eureka/
+	  fetchRegistry: false
+	server:
+	  waitTimeInMsWhenSyncEmpty: 0      
+      
+ 
  
  
  
