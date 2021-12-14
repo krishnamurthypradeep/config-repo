@@ -10,6 +10,12 @@ spring:
   data:
     rest:
       base-path: /api/v2
+eureka:
+ client:
+  registerWithEureka: true
+  fetchRegistry: true
+  service:
+   defaultZone: http://localhost:8070/eureka/
      
       
  
