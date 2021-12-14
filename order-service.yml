@@ -33,3 +33,9 @@ spring:
         initial-interval: 1000 # 1s
         max-interval: 2000 # 2s
         multiplier: 1.1
+eureka:
+ client:
+  registerWithEureka: true
+  fetchRegistry: true
+  serviceUrl:
+   defaultZone: http://localhost:8070/eureka/        
