@@ -15,9 +15,9 @@ eureka:
  registerWithEureka: false
  serviceUrl:
   defaultZone: http://localhost:8082/eureka/
-  fetchRegistry: false
-  server:
-   waitTimeInMsWhenSyncEmpty: 0      
+ fetchRegistry: false
+ server:
+  waitTimeInMsWhenSyncEmpty: 0      
       
  
  
