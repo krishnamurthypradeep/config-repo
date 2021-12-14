@@ -19,7 +19,7 @@ spring:
   flyway:
     user: ${spring.r2dbc.username}
     password: ${spring.r2dbc.password}
-    url: jdbc:postgresql://localhost:5433/polardb_order
+    url: jdbc:postgresql://localhost:5433/polardb_catalog
   config:
     import: "optional:configserver:"
   cloud:
