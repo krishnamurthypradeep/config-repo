@@ -5,8 +5,7 @@ server:
     connection-timeout: 2s
 
 spring:
-  application:
-    name: order-service
+  
   lifecycle:
     timeout-per-shutdown-phase: 15s
   r2dbc:
