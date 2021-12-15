@@ -10,7 +10,7 @@ spring:
     timeout-per-shutdown-phase: 15s
   r2dbc:
     username: user
-    password: password
+    password: pass
     url: r2dbc:postgresql://localhost:5432/myapp_orders
     pool:
       max-create-connection-time: 2s
