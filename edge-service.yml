@@ -25,20 +25,12 @@ spring:
           uri: lb://CATALOG-SERVICE
           predicates:
             - Path=/products/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: catalogCircuitBreaker
-                fallbackUri: forward:/catalog-fallback
+          
         - id: order-route
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/orders/**
-          filters:
-            - name: CircuitBreaker
-              args:
-                name: orderCircuitBreaker  
-                fallbackUri: forward:/order-fallback
+          
    
    
    
