@@ -28,7 +28,7 @@ spring:
             exceptions: java.io.IOException, java.util.concurrent.TimeoutException
             backoff:
               firstBackoff: 50ms
-              maxBackOff: 500ms
+              maxBackOff: 500ms  # firstBackoff * (factor ^ n)
               factor: 2
               basedOnPreviousValue: false
           
@@ -39,11 +39,35 @@ spring:
           uri: lb://CATALOG-SERVICE
           predicates:
             - Path=/products/**
+          filters:
+           - name: CircuitBreaker
+             args:
+              name: catalogCircuitBreaker
+              fallbackUri: forward:/catalog-fallback
           
         - id: order-route
           uri: lb://ORDER-SERVICE
           predicates:
             - Path=/orders/**
+          filters:
+           - name: CircuitBreaker
+             args:
+              name: orderCircuitBreaker
+      
+resilience4j:
+  circuitbreaker:
+    configs:
+      default:
+        slidingWindowSize: 20
+        permittedNumberOfCallsInHalfOpenState: 5
+        failureRateThreshold: 50
+        waitDurationInOpenState: 15000
+  timelimiter:
+    configs:
+      default:
+        timeoutDuration: 5s      
+              
+              
           
    
    
