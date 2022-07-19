@@ -4,6 +4,7 @@ server:
   netty:
     connection-timeout: 2s
 
+
 spring:
   
   lifecycle:
