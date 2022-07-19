@@ -9,30 +9,16 @@ spring:
   lifecycle:
     timeout-per-shutdown-phase: 15s
   r2dbc:
-    username: user
-    password: pass
-    url: r2dbc:postgresql://localhost:5432/myapp_orders
+    username: admin
+    password: admin
+    url: r2dbc:mysql://localhost:3306
+    name: devops
     pool:
       max-create-connection-time: 2s
       initial-size: 5
       max-size: 10
-  flyway:
-    user: ${spring.r2dbc.username}
-    password: ${spring.r2dbc.password}
-    url: jdbc:postgresql://localhost:5432/myapp_orders
-  config:
-    import: "optional:configserver:"
-  cloud:
-    config:
-      uri: http://localhost:8888
-      request-connect-timeout: 2000 # 2s
-      request-read-timeout: 5000 # 5s
-      fail-fast: false
-      retry:
-        max-attempts: 6
-        initial-interval: 1000 # 1s
-        max-interval: 2000 # 2s
-        multiplier: 1.1
+  
+  
 eureka:
  client:
   registerWithEureka: true
